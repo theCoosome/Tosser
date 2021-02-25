@@ -1,0 +1,19 @@
+Items require the following; have the following structure
+
+---An [empty] container
+-A rigidbody, controlling mass and gravity
+-A [Physics Object] script, with the rigidbody above and the center of mass.
+---Scale only this
+
+---A COM
+-A sphere for visualization
+-Translated to be used for center of mass
+
+---A model
+-Trigger colliders for grabbing
+-[Grabbable] script
+
+---Effect Empties, one per type of damage.
+-Non trigger colliders
+-[WeaponPart] scripts
+---Only these can deal damage (for now)
