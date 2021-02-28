@@ -8,9 +8,6 @@ public class WeaponPart : MonoBehaviour {
 
     public int damage;
 
-    public bool slice;
-    public bool stab;
-
     public Vector3 effectiveVectorPos;
     public Vector3 effectiveVectorNeg;
     //public Component[] Colliders;

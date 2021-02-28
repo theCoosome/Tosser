@@ -8,6 +8,8 @@ public class HitPart : MonoBehaviour {
 
     public GameObject hitobject; //the last object to hit this part
 
+    //When an object breaks, deal with joints.
+
 
     // Use this for initialization
     void Start () {
@@ -15,23 +17,25 @@ public class HitPart : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+		//for each joint, check relative velocity.
 	}
 
-    private void OnCollisionEnter(Collision collision) {
+    void OnCollisionEnter(Collision collision) {
         hitobject = collision.collider.gameObject; //the object that hit this part
         if (hitobject.GetComponent<WeaponPart>()) {
-            if (hitobject.GetComponent<WeaponPart>().slice) dealSlice(hitobject.GetComponent<WeaponPart>(), collision);
+            dealSlice(hitobject.GetComponent<WeaponPart>(), collision);
 
         } else {
             Debug.Log("we hit a non-weapon: "+hitobject.name);
             dealBludgeon(collision);
         }
+
     }
 
     private float dealBludgeon(Collision collision) {
         var takendmg = collision.relativeVelocity.magnitude * collision.gameObject.GetComponentInParent<Rigidbody>().mass; //WRONG what about torque
+        // Torque, if not included, is * distance between impact point and COM
 
 
         //Deal bludgeon damage with mass
@@ -66,6 +70,9 @@ public class HitPart : MonoBehaviour {
         Debug.Log("we hit "+hitobject.name+", doing slice damage: "+takendmg+" instead of "+modCollide);
 
         myParent.GetComponent<Entity>().HP -= takendmg;
+
+        var newcomp = gameObject.AddComponent<stickTracker>();
+        newcomp.setup(collision);
     }
 
 }
