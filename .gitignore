@@ -68,3 +68,5 @@ Tosser.sln
 Tosser.sln
 SteamVR_Windows_EditorHelper.csproj
 SteamVR_Input_Editor.csproj
+unityProject.vrmanifest
+Assembly-CSharp.csproj
