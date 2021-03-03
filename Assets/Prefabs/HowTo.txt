@@ -9,11 +9,27 @@ Items require the following; have the following structure
 -A sphere for visualization
 -Translated to be used for center of mass
 
----A model
--Trigger colliders for grabbing
--[Grabbable] script
+--- Cutter empty
+- mesh colliders for all of the cutting surfaces.
+- Cutting layer
+- Grabbable
+
+--- Model
+- Default layer
+- Model renderer
+- Non-slice colliders
+- Grabbable
+
+--- Weapon part
+- Mesh collider (trigger) for a single part
+- Weapon part script
+- water layer
+
+
 
 ---Effect Empties, one per type of damage.
 -Non trigger colliders
 -[WeaponPart] scripts
 ---Only these can deal damage (for now)
+
+

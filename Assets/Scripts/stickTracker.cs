@@ -9,6 +9,9 @@ public class stickTracker : MonoBehaviour
 
     private float Force;
     private Joint joint;
+    private bool stuck = false;
+
+    public float PermForce = 1;
 
     ///1 for positive, 0 for negative
     ///
@@ -25,17 +28,22 @@ public class stickTracker : MonoBehaviour
     {
         //Check relative velocity, if it is different from initial.
         //if (initialVel != (current>0)) { }
-
-        // Is the force growing, or shrinking?
-        if (Force < joint.currentForce.magnitude) {
-            Force = joint.currentForce.magnitude;
-            Debug.Log("Force up");
-        } else { // shrinking, time to stop.
-            var newjoint = gameObject.AddComponent<FixedJoint>(); // create static joint
-            newjoint.connectedBody = joint.connectedBody;
-            Destroy(joint);// break spring
-            joint = newjoint;
-            Debug.Log("Force down");
+        if (!stuck) {
+            // Is the force growing, or shrinking?
+            if (Force < joint.currentForce.magnitude) {
+                Force = joint.currentForce.magnitude;
+                Debug.Log("Force up: " + Force);
+            } 
+            if (Force * 0.9 > joint.currentForce.magnitude 
+                || joint.currentForce.magnitude > PermForce)  // this may not work well for small objects. Force related to mass?
+             { // shrinking, time to stop.
+                var newjoint = gameObject.AddComponent<FixedJoint>(); // create static joint
+                newjoint.connectedBody = joint.connectedBody;
+                Destroy(joint);// break spring
+                joint = newjoint;
+                Debug.Log("Force down: " + Force);
+                stuck = true;
+            }
         }
     }
 

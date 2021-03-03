@@ -14,7 +14,7 @@ public class ControllerGrab : MonoBehaviour {
     public SteamVR_Input_Sources Hand;
 
     // Currenly colliding object
-    private GameObject collidingObject;
+    public GameObject collidingObject;
     private GameObject collidingFinger;
 
     // Reference to object currently grabbed
@@ -52,8 +52,10 @@ public class ControllerGrab : MonoBehaviour {
         if (!collidingObject) {
             return;
         }
-
-        collidingObject = null;
+        if (other.gameObject == collidingObject) {
+            collidingObject = null;
+            Debug.Log("Left: "+other.gameObject.name);
+        }
     }
 
     public void forceUngrab() {
