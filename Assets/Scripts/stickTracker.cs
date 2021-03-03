@@ -31,21 +31,27 @@ public class stickTracker : MonoBehaviour
             Force = joint.currentForce.magnitude;
             Debug.Log("Force up");
         } else { // shrinking, time to stop.
-                 // break spring
-                 // create static joint
+            var newjoint = gameObject.AddComponent<FixedJoint>(); // create static joint
+            newjoint.connectedBody = joint.connectedBody;
+            Destroy(joint);// break spring
+            joint = newjoint;
             Debug.Log("Force down");
         }
     }
 
     // Get the collision
-    public void setup(Collision collision) {
-        // create initial spring. make sure there is good space between them (none)
-        var newjoint = gameObject.AddComponent<SpringJoint>();
-        newjoint.connectedBody = collision.gameObject.GetComponent<Rigidbody>();
+    public void setup(GameObject collided) {
 
-        newjoint.anchor = //Local coords for this object spring point
-            collision.GetContact(0).point;
+        Debug.Log("Is anything happening?");
+        // create initial spring. make sure there is good space between them (none)
+        joint = gameObject.AddComponent<SpringJoint>();
+        joint.connectedBody = collided.GetComponent<Rigidbody>();
+
+        //joint.anchor = collision.GetContact(0).point;
         //    gameObject.transform.InverseTransformPoint( //global to local conversion
         //        Hand.GetComponent<Transform>().position); //Grab point
+
+        //joint.spring = 10;
+        //joint.damper = 10;
     }
 }

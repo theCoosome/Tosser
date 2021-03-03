@@ -10,6 +10,8 @@ public class WeaponPart : MonoBehaviour {
 
     public Vector3 effectiveVectorPos;
     public Vector3 effectiveVectorNeg;
+
+    public GameObject parent;
     //public Component[] Colliders;
 
     // Use this for initialization

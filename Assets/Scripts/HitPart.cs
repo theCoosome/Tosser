@@ -21,33 +21,35 @@ public class HitPart : MonoBehaviour {
 		//for each joint, check relative velocity.
 	}
 
-    void OnCollisionEnter(Collision collision) {
-        hitobject = collision.collider.gameObject; //the object that hit this part
+    void OnTriggerEnter(Collider collider) {
+        hitobject = collider.gameObject; //the object that hit this part
+        Vector3 v1 = myParent.GetComponent<Rigidbody>().velocity; // my velocity
+        Vector3 v2 = collider.attachedRigidbody.velocity;
+        var relativeVelocity = new Vector3(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z); // relative velocity. may need to swap
         if (hitobject.GetComponent<WeaponPart>()) {
-            dealSlice(hitobject.GetComponent<WeaponPart>(), collision);
+            dealSlice(hitobject.GetComponent<WeaponPart>(), relativeVelocity);
+            Debug.Log("we hit a weapon");
 
         } else {
             Debug.Log("we hit a non-weapon: "+hitobject.name);
-            dealBludgeon(collision);
+            dealBludgeon(collider, relativeVelocity);
         }
 
     }
 
-    private float dealBludgeon(Collision collision) {
-        var takendmg = collision.relativeVelocity.magnitude * collision.gameObject.GetComponentInParent<Rigidbody>().mass; //WRONG what about torque
+    private float dealBludgeon(Collider collider, Vector3 relativeVelocity) {
+        var takendmg = relativeVelocity.magnitude * collider.attachedRigidbody.mass; //WRONG what about torque
         // Torque, if not included, is * distance between impact point and COM
 
 
         //Deal bludgeon damage with mass
-        Debug.Log("we hit "+hitobject.name+", doing bludgeon damage: "+takendmg+" coming from "+collision.relativeVelocity);
+        Debug.Log("we hit "+hitobject.name+", doing bludgeon damage: "+takendmg+" coming from "+relativeVelocity);
         myParent.GetComponent<Entity>().HP -= takendmg;
         return takendmg;
     }
 
-    private void dealSlice(WeaponPart hitFrom, Collision collision) {
-        
-        var initialImpact = dealBludgeon(collision); //Get bludgeon
-        var impact = hitobject.transform.InverseTransformVector(collision.relativeVelocity); //go to local space of weapon
+    private void dealSlice(WeaponPart hitFrom, Vector3 relativeVelocity) {
+        var impact = hitobject.transform.InverseTransformVector(relativeVelocity); //go to local space of weapon
         //transform the effective multiplier vectors into global space
         var Poseffect = hitobject.transform.TransformVector(hitFrom.effectiveVectorPos) / hitobject.GetComponent<Transform>().lossyScale.x;
         var Negeffect = hitobject.transform.TransformVector(hitFrom.effectiveVectorNeg) / hitobject.GetComponent<Transform>().lossyScale.x;
@@ -71,8 +73,8 @@ public class HitPart : MonoBehaviour {
 
         myParent.GetComponent<Entity>().HP -= takendmg;
 
-        var newcomp = gameObject.AddComponent<stickTracker>();
-        newcomp.setup(collision);
+        var newcomp = myParent.AddComponent<stickTracker>();
+        newcomp.setup(hitFrom.parent);
     }
 
 }
