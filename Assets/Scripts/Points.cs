@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Points : MonoBehaviour
@@ -8,30 +9,35 @@ public class Points : MonoBehaviour
 
     public GameObject hitobject;
 
+    public static DateTime time = DateTime.MinValue;
+    public static DateTime t2 = DateTime.MaxValue;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        time = DateTime.Now;
+        if (time >= t2)
+        {
+            //Destroy(col.gameObject);
+            Destroy(gameObject);
+            t2 = DateTime.MaxValue;
+        }
+
     }
 
-    void OnCollisionEnter(Collider col)
+    void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.name == "Axe")
+        if (col.gameObject.name == "Axe")
         {
-            hitobject = col.gameObject; //the object that hit this part
-            Vector3 v1 = myParent.GetComponent<Rigidbody>().velocity; // my velocity
-            Vector3 v2 = col.attachedRigidbody.velocity;
-            var relativeVelocity = new Vector3(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z);
-
-            ScoreBoard.Score += (int)(col.attachedRigidbody.mass * relativeVelocity.magnitude);
-
-            Destroy(col.gameObject);
+            time = DateTime.Now;
+            t2 = time.AddSeconds(5);
         }
     }
 }
+

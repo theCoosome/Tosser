@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 778122392161068526}
   - component: {fileID: 2093584010411671725}
   - component: {fileID: 2093584010411671727}
+  - component: {fileID: 1772113115940312085}
+  - component: {fileID: 1264625475193876540}
   m_Layer: 0
   m_Name: target
   m_TagString: Untagged
@@ -110,6 +112,33 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: da9486c9752c3ce47adb68c8886fe968, type: 3}
+--- !u!114 &1772113115940312085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282556405297316923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68d79525fb078a40b23f244cc29dc4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myParent: {fileID: 0}
+  hitobject: {fileID: 0}
+--- !u!114 &1264625475193876540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282556405297316923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1407a1f327a58e44fbe96955fbd041a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
