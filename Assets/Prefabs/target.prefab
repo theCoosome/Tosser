@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2093584010411671727}
   - component: {fileID: 1772113115940312085}
   - component: {fileID: 1264625475193876540}
+  - component: {fileID: 5480803901491601663}
   m_Layer: 0
   m_Name: target
   m_TagString: Untagged
@@ -127,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68d79525fb078a40b23f244cc29dc4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myParent: {fileID: 0}
+  myParent: {fileID: 1282556405297316923}
   hitobject: {fileID: 0}
 --- !u!114 &1264625475193876540
 MonoBehaviour:
@@ -141,4 +142,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1407a1f327a58e44fbe96955fbd041a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
+  HP: 100
+--- !u!114 &5480803901491601663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282556405297316923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e3aa4b5d1c6c7042ae132958f1e1fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myParent: {fileID: 1282556405297316923}
+  Axe: {fileID: 1702821389620516, guid: 89b26123e88cf6f4ab9820fc108c6dc7, type: 3}
+  Pencil: {fileID: 1371014923820498, guid: 0fbc8482afbf2f745a7117675bfc5e62, type: 3}
+  Pin: {fileID: 1861304756318648, guid: bb7ca98203c970348b54a34d8a598626, type: 3}

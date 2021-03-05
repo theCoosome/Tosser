@@ -103,6 +103,8 @@ public class physicsObject : MonoBehaviour {
             }
         }
 
+        //if (hitby ==1 and )
+
     }
 
     //track relative pos and angle here?
