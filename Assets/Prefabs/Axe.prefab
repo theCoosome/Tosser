@@ -206,6 +206,8 @@ GameObject:
   - component: {fileID: 23063344377210812}
   - component: {fileID: 136541853902496810}
   - component: {fileID: 114593854295519108}
+  - component: {fileID: 1666172428890423619}
+  - component: {fileID: 5620168387073291946}
   m_Layer: 0
   m_Name: Alphaxe Model
   m_TagString: Untagged
@@ -304,6 +306,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canGrab: 1
   Parentgrab: 1
+--- !u!65 &1666172428890423619
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907922956515360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.24934965, y: 2.0401776, z: 3.0843794}
+  m_Center: {x: -0.16335069, y: 1.1426812, z: 9.151813}
+--- !u!65 &5620168387073291946
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907922956515360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.22868004, y: 2.007414, z: 1.4511049}
+  m_Center: {x: -0.16641511, y: -1.2325507, z: 9.152505}
 --- !u!1 &1953863218205716
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +423,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5845247879607111934}
   - component: {fileID: 2145791259351204654}
-  - component: {fileID: 2080535942537640837}
   - component: {fileID: 7202314903839460365}
   m_Layer: 6
   m_Name: Cutter hitboxes
@@ -432,20 +459,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3ef79aa5bfcdd5e4fb6bd8d3071008ff, type: 3}
---- !u!114 &2080535942537640837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7038144840723326115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eccb8805b2a221448f1e6c65dd080d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canGrab: 0
-  Parentgrab: 0
 --- !u!64 &7202314903839460365
 MeshCollider:
   m_ObjectHideFlags: 0

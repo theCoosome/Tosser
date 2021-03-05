@@ -54,7 +54,7 @@ public class ControllerGrab : MonoBehaviour {
         }
         if (other.gameObject == collidingObject) {
             collidingObject = null;
-            Debug.Log("Left: "+other.gameObject.name);
+            //Debug.Log("Left: "+other.gameObject.name);
         }
     }
 
@@ -73,7 +73,7 @@ public class ControllerGrab : MonoBehaviour {
         }
 
 
-        Debug.Log("Grabbing...");
+        //Debug.Log("Grabbing...");
         if (objectInHand.GetComponent<Grabbable>().Parentgrab) {
             objectInHand.GetComponentInParent<physicsObject>().setGrab(gameObject, grabbed);
         } else {
@@ -112,7 +112,8 @@ public class ControllerGrab : MonoBehaviour {
 
         //bool grabKey = grabAction[Hand].state;
         bool grabKey = grabAction.GetStateDown(Hand);
-        bool relKey = releaseAction.GetStateDown(Hand);
+        //bool relKey = releaseAction.GetStateDown(Hand);
+        bool relKey = grabAction.GetStateUp(Hand);
         // Grab if collided
         // HairTriggerDown
         if (grabKey) {// && objectInHand == null) {
