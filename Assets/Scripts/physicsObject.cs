@@ -13,6 +13,18 @@ public class physicsObject : MonoBehaviour {
     private GameObject Grabber = null;
     private GameObject Grabber2 = null;
 
+    public static float AxePosx;
+    public static float AxePosy;
+    public static float AxePosz;
+
+    public static float PencilPosx;
+    public static float PencilPosy;
+    public static float PencilPosz;
+
+    public static float PinPosx;
+    public static float PinPosy;
+    public static float PinPosz;
+
     public GameObject COM;
 
     public Rigidbody rb;
@@ -26,6 +38,25 @@ public class physicsObject : MonoBehaviour {
         var pos = COM.GetComponent<Transform>().localPosition;
         rb.centerOfMass = new Vector3(pos[0]*scale[0], pos[1]*scale[1], pos[2]*scale[2]);
         //Debug.Log(rb.centerOfMass);
+
+        if (rb.name == "Axe")
+        {
+            AxePosx = transform.position.x;
+            AxePosy = transform.position.y;
+            AxePosz = transform.position.z;
+        }
+        if (rb.name == "Pencil")
+        {
+            PencilPosx = transform.position.x;
+            PencilPosy = transform.position.y;
+            PencilPosz = transform.position.z;
+        }
+        if (rb.name == "Pin")
+        {
+            PinPosx = transform.position.x;
+            PinPosy = transform.position.y;
+            PinPosz = transform.position.z;
+        }
     }
 
     // Update is called once per frame

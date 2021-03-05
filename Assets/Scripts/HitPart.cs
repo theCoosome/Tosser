@@ -74,6 +74,8 @@ public class HitPart : MonoBehaviour {
         myParent.GetComponent<Entity>().HP -= takendmg;
 
         ScoreBoard.Score += (int)takendmg * 10;
+        
+
 
         var newcomp = myParent.AddComponent<stickTracker>();
         newcomp.setup(hitFrom.parent);
