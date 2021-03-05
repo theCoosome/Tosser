@@ -26,7 +26,6 @@ public class stickTracker : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        return;
         //Check relative velocity, if it is different from initial.
         //if (initialVel != (current>0)) { }
         if (!stuck) {

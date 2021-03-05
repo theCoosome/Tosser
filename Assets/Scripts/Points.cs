@@ -2,53 +2,74 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEditor;
 
 public class Points : MonoBehaviour
 {
-    public GameObject myParent;
-
-    public GameObject Axe;
-    public GameObject Pencil;
-    public GameObject Pin;
-
-    public static int hitby = 0;
+    public int hitby = 0;
 
     public static DateTime time = DateTime.MinValue;
     public static DateTime t2 = DateTime.MaxValue;
-    private float startPosx;
-    private float startPosy;
-    private float startPosz;
 
+
+    public UnityEngine.Object Axe;
+    public UnityEngine.Object Pencil;
+    public UnityEngine.Object Pin;
+    public UnityEngine.Object target;
     // Start is called before the first frame update
     void Start()
     {
-        startPosx = transform.position.x;
-        startPosy = transform.position.y;
-        startPosz = transform.position.z;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //PrefabUtility.InstantiatePrefab(s);
+        time = DateTime.Now;
+        if (time >= t2)
+        {
+            //Destroy(col.gameObject);
+            if (hitby == 1)
+            {
+                Destroy(GameObject.Find("Axe"));
+                PrefabUtility.InstantiatePrefab(Axe);
+            }
+            if (hitby == 2)
+            {
+                Destroy(GameObject.Find("Pencil"));
+                PrefabUtility.InstantiatePrefab(Pencil);
+            }
+            if (hitby == 3)
+            {
+                Destroy(GameObject.Find("Pin"));
+                PrefabUtility.InstantiatePrefab(Pin);
+            }
 
+            //Instantiate(gameObject, new Vector3(1.0F, 1.0F, 1.0F), Quaternion.identity);
+            Destroy(gameObject);
+            t2 = DateTime.MaxValue;
+            hitby = 0;
+            //this.transform.position = startPos;
+        }
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name.StartsWith("Axe"))
+        Debug.Log("Axe?" + col.transform.parent.gameObject.name);
+        if (col.transform.parent.gameObject.name == "Axe" && hitby == 0)
         {
             time = DateTime.Now;
             t2 = time.AddSeconds(5);
             hitby = 1;
         }
-        if (col.gameObject.name.StartsWith("Pencil"))
+        if (col.transform.parent.gameObject.name == "Pencil")
         {
             time = DateTime.Now;
             t2 = time.AddSeconds(5);
             hitby = 2;
         }
-        if (col.gameObject.name.StartsWith("Pin"))
+        if (col.transform.parent.gameObject.name == "Pin")
         {
             time = DateTime.Now;
             t2 = time.AddSeconds(5);

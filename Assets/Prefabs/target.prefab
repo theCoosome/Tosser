@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282556405297316923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16, y: 2, z: 15}
+  m_LocalPosition: {x: 1, y: 1.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 0.100000024}
   m_Children: []
   m_Father: {fileID: 0}
@@ -155,7 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3aa4b5d1c6c7042ae132958f1e1fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myParent: {fileID: 1282556405297316923}
+  hitby: 0
   Axe: {fileID: 1702821389620516, guid: 89b26123e88cf6f4ab9820fc108c6dc7, type: 3}
   Pencil: {fileID: 1371014923820498, guid: 0fbc8482afbf2f745a7117675bfc5e62, type: 3}
   Pin: {fileID: 1861304756318648, guid: bb7ca98203c970348b54a34d8a598626, type: 3}
+  target: {fileID: 1282556405297316923}
