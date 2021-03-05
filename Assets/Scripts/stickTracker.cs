@@ -26,6 +26,7 @@ public class stickTracker : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        return;
         //Check relative velocity, if it is different from initial.
         //if (initialVel != (current>0)) { }
         if (!stuck) {
@@ -52,6 +53,10 @@ public class stickTracker : MonoBehaviour
 
         Debug.Log("Is anything happening?");
         // create initial spring. make sure there is good space between them (none)
+
+        //joint = gameObject.AddComponent<ConfigurableJoint>();
+        //joint.connectedBody = collided.GetComponent<Rigidbody>();
+
         joint = gameObject.AddComponent<SpringJoint>();
         joint.connectedBody = collided.GetComponent<Rigidbody>();
 

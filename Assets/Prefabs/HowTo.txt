@@ -18,18 +18,12 @@ Items require the following; have the following structure
 - Default layer
 - Model renderer
 - Non-slice colliders
+- trigger colliders for slicers for grabbing
 - Grabbable
 
 --- Weapon part
 - Mesh collider (trigger) for a single part
 - Weapon part script
 - water layer
-
-
-
----Effect Empties, one per type of damage.
--Non trigger colliders
--[WeaponPart] scripts
----Only these can deal damage (for now)
 
 
