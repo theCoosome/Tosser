@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7922705794380449342}
   - component: {fileID: 7922705794380449341}
   - component: {fileID: 3698702165880853949}
+  - component: {fileID: 7575943412318195901}
   m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
@@ -124,6 +125,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7575943412318195901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7922705794380449314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eccb8805b2a221448f1e6c65dd080d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canGrab: 1
+  Parentgrab: 1
 --- !u!1 &7922705794751102703
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +153,7 @@ GameObject:
   - component: {fileID: 7922705794751102697}
   - component: {fileID: 7922705794751102696}
   - component: {fileID: 7922705794751102693}
+  - component: {fileID: 9055395654486310841}
   m_Layer: 0
   m_Name: targetDummy
   m_TagString: Untagged
@@ -153,7 +169,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7922705794751102703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.855, y: 0.031, z: 0.26}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.1, z: 0.5}
   m_Children:
   - {fileID: 7922705794380449315}
@@ -251,3 +267,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9055395654486310841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7922705794751102703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e14f0dd3256be840ba4511491e9eb85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbed: 0
+  dualGrab: 0
+  COM: {fileID: 0}
+  rb: {fileID: 7922705794751102693}
