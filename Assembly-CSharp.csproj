@@ -49,6 +49,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Entity.cs" />
      <Compile Include="Assets\Scripts\Controller\Grabbable.cs" />
+     <Compile Include="Assets\Scripts\CreateTarget.cs" />
      <Compile Include="Assets\Scripts\Controller\ControllerGrab.cs" />
      <Compile Include="Assets\Scripts\HitPart.cs" />
      <Compile Include="Assets\Scripts\Controller\ControllerInput.cs" />

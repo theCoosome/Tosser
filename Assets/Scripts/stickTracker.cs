@@ -30,7 +30,6 @@ public class stickTracker : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
         if (!stuck) {
             float dist = Vector3.Distance(
             //connected anchor transform to world space via connected object
