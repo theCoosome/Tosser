@@ -54,8 +54,10 @@
      <Compile Include="Assets\Scripts\HitPart.cs" />
      <Compile Include="Assets\Scripts\Controller\ControllerInput.cs" />
      <Compile Include="Assets\Scripts\physicsObject.cs" />
+     <Compile Include="Assets\Scripts\ButtonPress.cs" />
      <Compile Include="Assets\Scripts\ScoreBoard.cs" />
      <Compile Include="Assets\Scripts\Points.cs" />
+     <Compile Include="Assets\Scripts\PlaneContact.cs" />
      <Compile Include="Assets\Scripts\WeaponPart.cs" />
      <Compile Include="Assets\Scripts\stickTracker.cs" />
      <None Include="Assets\Prefabs\HowTo.txt" />

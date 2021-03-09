@@ -32,6 +32,10 @@ public class HitPart : MonoBehaviour {
 
         } else {
             Debug.Log("we hit a non-weapon: "+hitobject.name);
+            if(hitobject.name == "Plane")
+            {
+                Rigidbody obj = myParent.GetComponent<Rigidbody>();
+            }
             dealBludgeon(collider, relativeVelocity);
         }
 
