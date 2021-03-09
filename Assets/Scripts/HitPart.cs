@@ -23,9 +23,9 @@ public class HitPart : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider) {
         hitobject = collider.gameObject; //the object that hit this part
-        Vector3 v1 = myParent.GetComponent<Rigidbody>().velocity; // my velocity
-        Vector3 v2 = collider.attachedRigidbody.velocity;
-        var relativeVelocity = new Vector3(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z); // relative velocity. may need to swap
+        Vector3 v2 = myParent.GetComponent<Rigidbody>().velocity; // my velocity
+        Vector3 v1 = collider.attachedRigidbody.velocity;
+        var relativeVelocity = new Vector3(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z); // Worldspace relative velocity. may need to swap
         if (hitobject.GetComponent<WeaponPart>()) {
             dealSlice(hitobject.GetComponent<WeaponPart>(), relativeVelocity);
             Debug.Log("we hit a weapon");
@@ -67,7 +67,7 @@ public class HitPart : MonoBehaviour {
         modCollide.y = (impact.y < 0) ? impact.y * Negeffect.y : impact.y * Poseffect.y;
         modCollide.z = (impact.z < 0) ? impact.z * Negeffect.z : impact.z * Poseffect.z;
 
-        Debug.Log(modCollide +":"+ modCollide.magnitude);
+        Debug.Log(relativeVelocity + "to" + impact + " vel, for "+ modCollide +":"+ modCollide.magnitude);
 
         modCollide = hitobject.transform.TransformVector(modCollide); //return to global space
 
@@ -78,11 +78,16 @@ public class HitPart : MonoBehaviour {
         myParent.GetComponent<Entity>().HP -= takendmg;
 
         ScoreBoard.Score += (int)takendmg * 10;
-        
 
+
+        modCollide.x = (impact.x < 0) ? hitFrom.effectiveVectorNeg.x : hitFrom.effectiveVectorPos.x;
+        modCollide.y = (impact.y < 0) ? hitFrom.effectiveVectorNeg.y : hitFrom.effectiveVectorPos.y;
+        modCollide.z = (impact.z < 0) ? hitFrom.effectiveVectorNeg.z : hitFrom.effectiveVectorPos.z;
+        //modCollide = hitobject.transform.TransformVector(modCollide); //return to global space
+        Debug.Log("Passing " + modCollide);
 
         var newcomp = myParent.AddComponent<stickTracker>();
-        newcomp.setup(hitFrom.parent);
+        newcomp.setup(hitFrom, modCollide);
     }
 
 }

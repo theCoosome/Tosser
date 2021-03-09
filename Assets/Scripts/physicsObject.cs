@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class physicsObject : MonoBehaviour {
 
-    private const float spinStr = 20;
-    private const float grabStr = 1750;
+    private const float spinStr = 80; //20;
+    private const float grabStr = 3000; //1750;
 
     public byte grabbed = 0;
     public byte dualGrab = 0;
@@ -25,8 +25,10 @@ public class physicsObject : MonoBehaviour {
         rb = gameObject.GetComponent<Rigidbody>();
         //Debug.Log(rb.centerOfMass);
         var scale = gameObject.GetComponent<Transform>().localScale;
-        var pos = COM.GetComponent<Transform>().localPosition;
-        rb.centerOfMass = new Vector3(pos[0]*scale[0], pos[1]*scale[1], pos[2]*scale[2]);
+        if (COM) {
+            var pos = COM.GetComponent<Transform>().localPosition;
+            rb.centerOfMass = new Vector3(pos[0]*scale[0], pos[1]*scale[1], pos[2]*scale[2]);
+        }
         //Debug.Log(rb.centerOfMass);
     }
 
@@ -138,6 +140,7 @@ public class physicsObject : MonoBehaviour {
 
                 var why = new JointDrive();
                 why.positionSpring = i.slerpDrive.positionSpring + spinStr * mult;
+                why.positionDamper = 10;
                 why.maximumForce = i.slerpDrive.maximumForce;
                 i.slerpDrive = why;
 
@@ -230,13 +233,15 @@ public class physicsObject : MonoBehaviour {
         newJoint.lowAngularXLimit = limits;
 
         var joints = new JointDrive();
-        joints.positionSpring = 10;
+        joints.positionSpring = spinStr;
         joints.maximumForce = 500;
+        joints.positionDamper = 10;
         newJoint.slerpDrive = joints;
 
         var grabs = new JointDrive();
         grabs.positionSpring = grabStr;
         grabs.maximumForce = grabStr;
+        grabs.positionDamper = 10;
         newJoint.xDrive = grabs;
         newJoint.yDrive = grabs;
         newJoint.zDrive = grabs;
