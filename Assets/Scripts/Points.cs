@@ -67,19 +67,19 @@ public class Points : MonoBehaviour
         if (col.transform.parent.gameObject.name == "Axe")
         {
             time = DateTime.Now;
-            t2 = time.AddSeconds(3);
+            t2 = time.AddSeconds(1.5);
             hitby = 1;
         }
         if (col.transform.parent.gameObject.name == "Pencil")
         {
             time = DateTime.Now;
-            t2 = time.AddSeconds(3);
+            t2 = time.AddSeconds(1.5);
             hitby = 2;
         }
         if (col.transform.parent.gameObject.name == "Pin")
         {
             time = DateTime.Now;
-            t2 = time.AddSeconds(3);
+            t2 = time.AddSeconds(1.5);
             hitby = 3;
         }
     }

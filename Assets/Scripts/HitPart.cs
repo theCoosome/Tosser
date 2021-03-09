@@ -8,12 +8,14 @@ public class HitPart : MonoBehaviour {
 
     public GameObject hitobject; //the last object to hit this part
 
+    public static float Health;
+
     //When an object breaks, deal with joints.
 
 
     // Use this for initialization
     void Start () {
-
+        Health = myParent.GetComponent<Entity>().HP;
     }
 	
 	// Update is called once per frame
@@ -76,6 +78,7 @@ public class HitPart : MonoBehaviour {
         Debug.Log("we hit "+hitobject.name+", doing slice damage: "+takendmg+" instead of "+modCollide);
 
         myParent.GetComponent<Entity>().HP -= takendmg;
+        Health = myParent.GetComponent<Entity>().HP;
 
         ScoreBoard.Score += (int)takendmg * 10;
 

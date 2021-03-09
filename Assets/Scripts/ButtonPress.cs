@@ -35,7 +35,7 @@ public class ButtonPress : MonoBehaviour
             //Points.Targetrb.velocity = Points.speed;
             press = true;
             time1 = DateTime.Now;
-            time2 = time1.AddSeconds(1.5);
+            time2 = time1.AddSeconds(1);
         }
     }
 }

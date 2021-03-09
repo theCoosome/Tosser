@@ -18,10 +18,10 @@ public class PlaneContact : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("Pin").transform.position.y < 0)
+        if(GameObject.Find("Pin").transform.position.y < 0 && Points.hitby !=3)
         {
             //Points.time = DateTime.Now;
-            Points.t2 = DateTime.Now;
+            Points.t2 = DateTime.Now.AddSeconds(1.5);
             Points.hitby = 3;
         }
     }
@@ -32,19 +32,20 @@ public class PlaneContact : MonoBehaviour
         if (col.transform.parent.gameObject.name == "Axe")
         {
             //Points.time = DateTime.Now;
-            Points.t2 = DateTime.Now.AddSeconds(3);
+            Points.t2 = DateTime.Now.AddSeconds(1.5);
             Points.hitby = 1;
         }
         if (col.transform.parent.gameObject.name == "Pencil")
         {
             //Points.time = DateTime.Now;
-            Points.t2 = DateTime.Now.AddSeconds(3);
+            Points.t2 = DateTime.Now.AddSeconds(1.5);
             Points.hitby = 2;
+
         }
         if (col.transform.parent.gameObject.name == "Pin")
         {
             //Points.time = DateTime.Now;
-            Points.t2 = DateTime.Now.AddSeconds(3);
+            Points.t2 = DateTime.Now.AddSeconds(1.5);
             Points.hitby = 3;
         }
 
