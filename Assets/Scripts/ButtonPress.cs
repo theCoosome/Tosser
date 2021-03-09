@@ -11,6 +11,8 @@ public class ButtonPress : MonoBehaviour
     private DateTime time1 = DateTime.MinValue;
     private DateTime time2 = DateTime.MaxValue;
 
+    public Vector3 speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,14 @@ public class ButtonPress : MonoBehaviour
         time1 = DateTime.Now;
         if (press && time1 > time2)
         {
-            Points.Targetrb.velocity = Points.speed;
+            if (MoveTarget.hard == false)
+            {
+                Points.Targetrb.velocity = speed;
+            }
+            else
+            {
+                Points.Targetrb.velocity = new Vector3 (speed.x, speed.y, -40);
+            }
             press = false;
         }
     }

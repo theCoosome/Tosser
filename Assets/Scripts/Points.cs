@@ -18,7 +18,7 @@ public class Points : MonoBehaviour
     public UnityEngine.Object target;
 
     public static Rigidbody Targetrb;
-    public static Vector3 speed = new Vector3(-10, 8, 0);
+    
     // Start is called before the first frame update
     void Start()
     {

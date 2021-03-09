@@ -80,7 +80,7 @@ public class HitPart : MonoBehaviour {
         myParent.GetComponent<Entity>().HP -= takendmg;
         Health = myParent.GetComponent<Entity>().HP;
 
-        ScoreBoard.Score += (int)takendmg * 10;
+        ScoreBoard.Score += (int)(takendmg * 10.0);
 
 
         modCollide.x = (impact.x < 0) ? hitFrom.effectiveVectorNeg.x : hitFrom.effectiveVectorPos.x;
