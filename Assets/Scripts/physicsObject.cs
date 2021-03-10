@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class physicsObject : MonoBehaviour {
 
-    private const float spinStr = 80; //20;
-    private const float grabStr = 3000; //1750;
+    private const float spinStr = 100; //20;
+    private const float grabStr = 4000; //1750;
 
     public byte grabbed = 0;
     public byte dualGrab = 0;
@@ -62,7 +62,7 @@ public class physicsObject : MonoBehaviour {
                                                          //Destroy(j);
                         Debug.Log("A grip has been broken- Not strong enough");
                     }
-                    if (Vector3.Distance(gameObject.transform.TransformPoint(j.anchor), Grabber2.transform.position) > 0.08) { // too far
+                    if (Vector3.Distance(gameObject.transform.TransformPoint(j.anchor), Grabber2.transform.position) > 0.2) { // too far
                         Grabber2.GetComponent<ControllerGrab>().forceUngrab();
                         release(Grabber2);
                         Debug.Log("A grip has been broken- Too far!");
