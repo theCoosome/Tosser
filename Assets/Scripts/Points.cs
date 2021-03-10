@@ -15,6 +15,7 @@ public class Points : MonoBehaviour
     public UnityEngine.Object Axe;
     public UnityEngine.Object Pencil;
     public UnityEngine.Object Pin;
+    public UnityEngine.Object Dagger;
     public UnityEngine.Object target;
 
     public static Rigidbody Targetrb;
@@ -53,9 +54,10 @@ public class Points : MonoBehaviour
             {
                 Destroy(GameObject.Find("target"));
             }
-            if (htiby ==5)
+            if (hitby ==5)
             {
-                Destory(GameObject.Find("Dagger"));
+                Destroy(GameObject.Find("Dagger"));
+                PrefabUtility.InstantiatePrefab(Dagger);
             }
 
             //Instantiate(gameObject, new Vector3(1.0F, 1.0F, 1.0F), Quaternion.identity);
