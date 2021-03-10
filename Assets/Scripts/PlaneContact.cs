@@ -48,6 +48,12 @@ public class PlaneContact : MonoBehaviour
             Points.t2 = DateTime.Now.AddSeconds(1.5);
             Points.hitby = 3;
         }
+        if (col.transform.parent.gameObject.name == "Dagger")
+        {
+            //Points.time = DateTime.Now;
+            Points.t2 = DateTime.Now.AddSeconds(1.5);
+            Points.hitby = 5;
+        }
 
     }
 }

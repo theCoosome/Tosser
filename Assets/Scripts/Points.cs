@@ -53,6 +53,10 @@ public class Points : MonoBehaviour
             {
                 Destroy(GameObject.Find("target"));
             }
+            if (htiby ==5)
+            {
+                Destory(GameObject.Find("Dagger"));
+            }
 
             //Instantiate(gameObject, new Vector3(1.0F, 1.0F, 1.0F), Quaternion.identity);
             Destroy(gameObject);
@@ -81,6 +85,12 @@ public class Points : MonoBehaviour
             time = DateTime.Now;
             t2 = time.AddSeconds(1.5);
             hitby = 3;
+        }
+        if (col.transform.parent.gameObject.name == "Dagger")
+        {
+            time = DateTime.Now;
+            t2 = time.AddSeconds(1.5);
+            hitby = 5;
         }
     }
 }
