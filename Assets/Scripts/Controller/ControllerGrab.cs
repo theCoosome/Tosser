@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
@@ -9,7 +10,6 @@ public class ControllerGrab : MonoBehaviour {
 
 
     public SteamVR_Action_Boolean grabAction;
-    public SteamVR_Action_Boolean releaseAction;
     //public Hand hand;
     public SteamVR_Input_Sources Hand;
 
@@ -112,7 +112,7 @@ public class ControllerGrab : MonoBehaviour {
 
         //bool grabKey = grabAction[Hand].state;
         bool grabKey = grabAction.GetStateDown(Hand);
-        //bool relKey = releaseAction.GetStateDown(Hand);
+        
         bool relKey = grabAction.GetStateUp(Hand);
         // Grab if collided
         // HairTriggerDown

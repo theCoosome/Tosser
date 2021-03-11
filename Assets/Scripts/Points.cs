@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEditor;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class Points : MonoBehaviour
 {
@@ -19,7 +21,12 @@ public class Points : MonoBehaviour
     public UnityEngine.Object target;
 
     public static Rigidbody Targetrb;
-    
+
+    public SteamVR_Action_Boolean releaseAction;
+
+    public SteamVR_Input_Sources LHand;
+    public SteamVR_Input_Sources RHand;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +36,25 @@ public class Points : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (releaseAction.GetStateDown(LHand) || releaseAction.GetStateDown(RHand))
+        {
+            ScoreBoard.Score = 0;
 
+            Destroy(GameObject.Find("Axe"));
+            PrefabUtility.InstantiatePrefab(Axe);
+      
+            Destroy(GameObject.Find("Pencil"));
+            PrefabUtility.InstantiatePrefab(Pencil);
+     
+            Destroy(GameObject.Find("Pin"));
+            PrefabUtility.InstantiatePrefab(Pin);
+     
+            Destroy(GameObject.Find("target"));
+        
+            Destroy(GameObject.Find("Dagger"));
+            PrefabUtility.InstantiatePrefab(Dagger);
+
+        }
         //PrefabUtility.InstantiatePrefab(s);
         time = DateTime.Now;
         if (time >= t2 || gameObject.transform.position.x < -15.0)

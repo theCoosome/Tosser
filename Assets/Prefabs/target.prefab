@@ -160,3 +160,8 @@ MonoBehaviour:
   Pin: {fileID: 1861304756318648, guid: bb7ca98203c970348b54a34d8a598626, type: 3}
   Dagger: {fileID: 4716320216031802068, guid: 4761f17dc6585f34487184213177a9ad, type: 3}
   target: {fileID: 1282556405297316923}
+  releaseAction:
+    actionPath: /actions/ViveBase/in/Reset
+    needsReinit: 0
+  LHand: 1
+  RHand: 2

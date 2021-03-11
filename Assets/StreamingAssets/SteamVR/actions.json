@@ -13,7 +13,7 @@
       "type": "boolean"
     },
     {
-      "name": "/actions/ViveBase/in/GrabGrip",
+      "name": "/actions/ViveBase/in/Reset",
       "type": "boolean"
     },
     {

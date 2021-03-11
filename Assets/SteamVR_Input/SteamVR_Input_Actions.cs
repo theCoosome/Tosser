@@ -23,7 +23,7 @@ namespace Valve.VR
         
         private static SteamVR_Action_Boolean p_viveBase_GrabPinch;
         
-        private static SteamVR_Action_Boolean p_viveBase_GrabGrip;
+        private static SteamVR_Action_Boolean p_viveBase_Reset;
         
         private static SteamVR_Action_Pose p_viveBase_Pose;
         
@@ -65,11 +65,11 @@ namespace Valve.VR
             }
         }
         
-        public static SteamVR_Action_Boolean viveBase_GrabGrip
+        public static SteamVR_Action_Boolean viveBase_Reset
         {
             get
             {
-                return SteamVR_Actions.p_viveBase_GrabGrip.GetCopy<SteamVR_Action_Boolean>();
+                return SteamVR_Actions.p_viveBase_Reset.GetCopy<SteamVR_Action_Boolean>();
             }
         }
         
@@ -143,7 +143,7 @@ namespace Valve.VR
                     SteamVR_Actions.viveBase_InteractUI,
                     SteamVR_Actions.viveBase_Teleport,
                     SteamVR_Actions.viveBase_GrabPinch,
-                    SteamVR_Actions.viveBase_GrabGrip,
+                    SteamVR_Actions.viveBase_Reset,
                     SteamVR_Actions.viveBase_Pose,
                     SteamVR_Actions.viveBase_SkeletonLeftHand,
                     SteamVR_Actions.viveBase_SkeletonRightHand,
@@ -156,7 +156,7 @@ namespace Valve.VR
                     SteamVR_Actions.viveBase_InteractUI,
                     SteamVR_Actions.viveBase_Teleport,
                     SteamVR_Actions.viveBase_GrabPinch,
-                    SteamVR_Actions.viveBase_GrabGrip,
+                    SteamVR_Actions.viveBase_Reset,
                     SteamVR_Actions.viveBase_Pose,
                     SteamVR_Actions.viveBase_SkeletonLeftHand,
                     SteamVR_Actions.viveBase_SkeletonRightHand,
@@ -174,7 +174,7 @@ namespace Valve.VR
                     SteamVR_Actions.viveBase_InteractUI,
                     SteamVR_Actions.viveBase_Teleport,
                     SteamVR_Actions.viveBase_GrabPinch,
-                    SteamVR_Actions.viveBase_GrabGrip,
+                    SteamVR_Actions.viveBase_Reset,
                     SteamVR_Actions.viveBase_HeadsetOnHead,
                     SteamVR_Actions.viveBase_SnapTurnLeft,
                     SteamVR_Actions.viveBase_SnapTurnRight};
@@ -189,7 +189,7 @@ namespace Valve.VR
                     SteamVR_Actions.viveBase_InteractUI,
                     SteamVR_Actions.viveBase_Teleport,
                     SteamVR_Actions.viveBase_GrabPinch,
-                    SteamVR_Actions.viveBase_GrabGrip,
+                    SteamVR_Actions.viveBase_Reset,
                     SteamVR_Actions.viveBase_Squeeze,
                     SteamVR_Actions.viveBase_HeadsetOnHead,
                     SteamVR_Actions.viveBase_SnapTurnLeft,
@@ -201,7 +201,7 @@ namespace Valve.VR
             SteamVR_Actions.p_viveBase_InteractUI = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/ViveBase/in/InteractUI")));
             SteamVR_Actions.p_viveBase_Teleport = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/ViveBase/in/Teleport")));
             SteamVR_Actions.p_viveBase_GrabPinch = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/ViveBase/in/GrabPinch")));
-            SteamVR_Actions.p_viveBase_GrabGrip = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/ViveBase/in/GrabGrip")));
+            SteamVR_Actions.p_viveBase_Reset = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/ViveBase/in/Reset")));
             SteamVR_Actions.p_viveBase_Pose = ((SteamVR_Action_Pose)(SteamVR_Action.Create<SteamVR_Action_Pose>("/actions/ViveBase/in/Pose")));
             SteamVR_Actions.p_viveBase_SkeletonLeftHand = ((SteamVR_Action_Skeleton)(SteamVR_Action.Create<SteamVR_Action_Skeleton>("/actions/ViveBase/in/SkeletonLeftHand")));
             SteamVR_Actions.p_viveBase_SkeletonRightHand = ((SteamVR_Action_Skeleton)(SteamVR_Action.Create<SteamVR_Action_Skeleton>("/actions/ViveBase/in/SkeletonRightHand")));

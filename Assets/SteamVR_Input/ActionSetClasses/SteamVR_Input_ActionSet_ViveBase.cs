@@ -41,11 +41,11 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean GrabGrip
+        public virtual SteamVR_Action_Boolean Reset
         {
             get
             {
-                return SteamVR_Actions.viveBase_GrabGrip;
+                return SteamVR_Actions.viveBase_Reset;
             }
         }
         
