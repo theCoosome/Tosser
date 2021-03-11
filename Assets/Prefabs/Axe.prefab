@@ -176,8 +176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  effectiveVectorPos: {x: 0, y: 0, z: 0.4}
-  effectiveVectorNeg: {x: 0, y: 2, z: 0.4}
+  effectiveVectorPos: {x: 0, y: 0, z: 0.2}
+  effectiveVectorNeg: {x: 0, y: 1, z: 0.2}
   parent: {fileID: 1702821389620516}
 --- !u!64 &64976695755343536
 MeshCollider:

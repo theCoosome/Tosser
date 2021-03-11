@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26ccd987ccddc241970bec4cb9f5b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 15
   effectiveVectorPos: {x: 0, y: 0, z: 1}
   effectiveVectorNeg: {x: 0, y: 0, z: 0}
   parent: {fileID: 1861304756318648}
