@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-using UnityEditor;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
@@ -40,19 +39,29 @@ public class Points : MonoBehaviour
         {
             ScoreBoard.Score = 0;
 
+            Quaternion quat = new Quaternion(0, 0, 0, 0);
+
             Destroy(GameObject.Find("Axe"));
-            PrefabUtility.InstantiatePrefab(Axe);
-      
+            //PrefabUtility.InstantiatePrefab(Axe);
+            quat.eulerAngles = new Vector3(0, 180, 90);
+            Instantiate(Axe, new Vector3(-0.4F, 0.75F, 1.2F), quat).name = "Axe";
+
             Destroy(GameObject.Find("Pencil"));
-            PrefabUtility.InstantiatePrefab(Pencil);
-     
+            //PrefabUtility.InstantiatePrefab(Pencil);
+            quat.eulerAngles = new Vector3(0, 180, 0);
+            Instantiate(Pencil, new Vector3(0.5F, 0.75F, 1F), quat).name = "Pencil";
+
             Destroy(GameObject.Find("Pin"));
-            PrefabUtility.InstantiatePrefab(Pin);
-     
+            //PrefabUtility.InstantiatePrefab(Pin);
+            quat.eulerAngles = new Vector3(0, 180, 0);
+            Instantiate(Pin, new Vector3(0.1F, 0.75F, 0.75F), quat).name = "Pin";
+
             Destroy(GameObject.Find("target"));
         
             Destroy(GameObject.Find("Dagger"));
-            PrefabUtility.InstantiatePrefab(Dagger);
+            //PrefabUtility.InstantiatePrefab(Dagger);
+            quat.eulerAngles = new Vector3(0, 0, 0);
+            Instantiate(Dagger, new Vector3(0F, 0.85F, 0.74F), quat).name = "Dagger";
 
         }
         //PrefabUtility.InstantiatePrefab(s);
@@ -60,20 +69,33 @@ public class Points : MonoBehaviour
         if (time >= t2 || gameObject.transform.position.x < -15.0)
         {
             //Destroy(col.gameObject);
+
+            Quaternion quat = new Quaternion(0, 0, 0, 0);
+
             if (hitby == 1)
             {
                 Destroy(GameObject.Find("Axe"));
-                PrefabUtility.InstantiatePrefab(Axe);
+                //PrefabUtility.InstantiatePrefab(Axe);
+                //Instantiate(Axe, new Vector3(-0.4F, 0.75F, 1.2F), new Vector3(0, 180, 90)).name = "Axe";
+                quat.eulerAngles = new Vector3(0, 180, 90);
+                Instantiate(Axe, new Vector3(-0.4F, 0.75F, 1.2F), quat).name = "Axe";
             }
             if (hitby == 2)
             {
                 Destroy(GameObject.Find("Pencil"));
-                PrefabUtility.InstantiatePrefab(Pencil);
+                //PrefabUtility.InstantiatePrefab(Pencil);
+                //Instantiate(Pencil, new Vector3(0.5F, 0.75F, 1F), new Vector3(0, 180, 0)).name = "Pencil";
+                quat.eulerAngles = new Vector3(0, 180, 0);
+                Instantiate(Pencil, new Vector3(0.5F, 0.75F, 1F), quat).name = "Pencil";
+
             }
             if (hitby == 3)
             {
                 Destroy(GameObject.Find("Pin"));
-                PrefabUtility.InstantiatePrefab(Pin);
+                //PrefabUtility.InstantiatePrefab(Pin);
+                //Instantiate(Pin, new Vector3(0.1F, 0.75F, 0.75F), new Vector3(0, 180, 0)).name = "Pin";
+                quat.eulerAngles = new Vector3(0, 180, 0);
+                Instantiate(Pin, new Vector3(0.1F, 0.75F, 0.75F), quat).name = "Pin";
             }
             if (hitby == 4)
             {
@@ -82,7 +104,10 @@ public class Points : MonoBehaviour
             if (hitby ==5)
             {
                 Destroy(GameObject.Find("Dagger"));
-                PrefabUtility.InstantiatePrefab(Dagger);
+                //PrefabUtility.InstantiatePrefab(Dagger);
+                //Instantiate(Dagger, new Vector3(0F, 0.85F, 0.74F), new Vector3(0, 0, 0)).name = "Dagger";
+                quat.eulerAngles = new Vector3(0, 0, 0);
+                Instantiate(Dagger, new Vector3(0F, 0.85F, 0.74F), quat).name = "Dagger";
             }
 
             //Instantiate(gameObject, new Vector3(1.0F, 1.0F, 1.0F), Quaternion.identity);

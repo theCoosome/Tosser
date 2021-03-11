@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-using UnityEditor;
 
 public class CreateTarget : MonoBehaviour
 { 
@@ -31,18 +30,22 @@ public class CreateTarget : MonoBehaviour
                 Destroy(GameObject.Find("targetBb"));
                 time1 = DateTime.MinValue;
             }
-            PrefabUtility.InstantiatePrefab(target);
+            //PrefabUtility.InstantiatePrefab(target);
+            Quaternion quat = new Quaternion(0, 0, 0, 0);
+            quat.eulerAngles = new Vector3(0, 0, 0);
+            Instantiate(target, new Vector3(15F, 1F, 8.5F), quat).name = "target";
         }
         else if (HitPart.Health < 0.0)
         {
             Vector3 pos = GameObject.Find("target").transform.position;
+            Quaternion rot = GameObject.Find("target").transform.rotation;
             Vector3 vel = GameObject.Find("target").GetComponent<Rigidbody>().velocity;
             Destroy(GameObject.Find("target"));
-            PrefabUtility.InstantiatePrefab(tarA);
-            GameObject.Find("targetBa").transform.position = pos;
+            //PrefabUtility.InstantiatePrefab(tarA);
+            Instantiate(target, pos, rot).name = "targetBa";
             GameObject.Find("targetBa").GetComponent<Rigidbody>().velocity = vel;
-            PrefabUtility.InstantiatePrefab(tarB);
-            GameObject.Find("targetBb").transform.position = pos;
+            //PrefabUtility.InstantiatePrefab(tarB);
+            Instantiate(target, pos, rot).name = "targetBb";
             GameObject.Find("targetBb").GetComponent<Rigidbody>().velocity = vel;
             time1 = DateTime.Now.AddSeconds(1.5);
         }
