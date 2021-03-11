@@ -18,10 +18,12 @@ public class MoveTarget : MonoBehaviour
         if(hard == true && GameObject.Find("target").GetComponent<Rigidbody>().velocity == new Vector3 (0, 0, 0))
         {
             GameObject.Find("target").transform.position = new Vector3(15.0F, 1.0F, 45.0F);
+            GameObject.Find("target").transform.eulerAngles = new Vector3(0F, 0F, 0F);
         }
         else if (hard == false && GameObject.Find("target").GetComponent<Rigidbody>().velocity == new Vector3(0, 0, 0))
         {
             GameObject.Find("target").transform.position = new Vector3(15.0F, 1.0F, 8.5F);
+            GameObject.Find("target").transform.eulerAngles = new Vector3(0F, 0F, 0F);
         }
     }
 
